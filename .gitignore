@@ -1,3 +1,4 @@
 result*
-build/
 env/
+*/build/**
+!htlc/build/packages/packages.toml
