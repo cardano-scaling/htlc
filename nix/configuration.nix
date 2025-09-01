@@ -1,10 +1,11 @@
 { self, inputs, ... }: {
 
   imports = [
+    inputs.files.flakeModules.default
     inputs.hydra-coding-standards.flakeModule
   ];
 
-  perSystem = { pkgs, system, lib, ... }: {
+  perSystem = { pkgs, system, lib, ... }: rec {
     coding.standards.hydra.enable = true;
     packages.default =
       let
@@ -35,6 +36,10 @@
         inputs.aiken.packages.${system}.default
       ];
     };
+    files.files = [{
+      path_ = "htlc/plutus.json";
+      drv = packages.default;
+    }];
 
   };
 }

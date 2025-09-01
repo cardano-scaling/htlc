@@ -1,6 +1,7 @@
 {
   inputs = {
     aiken.url = "github:aiken-lang/aiken/v1.1.19";
+    files.url = "github:mightyiam/files";
     flake-parts.url = "github:hercules-ci/flake-parts";
     hydra-coding-standards.url = "github:cardano-scaling/hydra-coding-standards/0.6.5";
     import-tree.url = "github:vic/import-tree";
