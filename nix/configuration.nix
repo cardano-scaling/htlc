@@ -13,6 +13,10 @@
           url = "https://github.com/aiken-lang/stdlib/archive/v2.2.0.zip";
           hash = "sha256-BDaM+JdswlPasHsI03rLl4OR7u5HsbAd3/VFaoiDTh4=";
         };
+        vodka = pkgs.fetchzip {
+          url = "https://github.com/sidan-lab/vodka/archive/0.1.16.zip";
+          hash = "sha256-SYeuBW2F5vsR7aJyJAtGTvnsyID0gNKYkMyrlJM2pwQ=";
+        };
       in
       pkgs.stdenv.mkDerivation {
         name = "hydra-htlc";
@@ -23,7 +27,9 @@
         buildPhase = ''
           export HOME=$TMPDIR
           mkdir -p build/packages
+          touch build/aiken-compile.lock
           cp -r ${stdlib} build/packages/aiken-lang-stdlib
+          cp -r ${vodka} build/packages/sidan-lab-vodka
           aiken build -t compact
         '';
         installPhase = ''

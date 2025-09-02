@@ -2,3 +2,8 @@
 name = "aiken-lang/stdlib"
 version = "v2.2.0"
 source = "github"
+
+[[packages]]
+name = "sidan-lab/vodka"
+version = "0.1.16"
+source = "github"
